@@ -1,0 +1,14 @@
+.appHeader {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.appHeader-h1 {
+    align-self: flex-start;
+}
+
+.appHeader-h5 {
+    align-self: flex-end;
+    color: darkgray;
+}

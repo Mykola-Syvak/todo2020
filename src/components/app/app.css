@@ -1,0 +1,12 @@
+.indexClass {
+    margin-left: auto;
+    margin-right: auto;
+    width: 28em;
+}
+
+.search-panel-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0em;
+    border-width: 0px;
+}
