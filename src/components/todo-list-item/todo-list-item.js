@@ -3,24 +3,29 @@ import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
 
+    constructor() {
+        super();
+        this.onLabelClick = () => {
+            console.log(`Done: ${this.props.label}`);
+        };
+    }
 
     render() {
 
-        const  { label, important = false } = this.props;
-
+        const  { label, important = false, done = false } = this.props;
 
         let classNames = 'todo-list-item';
-            /*if (done) {
-                classNames += ' done';
-            }*/
-
+        if (done) {
+            classNames += ' done';
+        }
         if (important) {
-                classNames += ' important';
+            classNames += ' important';
         };
         
         return (
             <span className={classNames}>
-                <span className="todo-list-item-label">
+                <span className="todo-list-item-label"
+                      onClick={ this.onLabelClick }>
                     { label }
                 </span>
                 <span className="todo-list-button">
