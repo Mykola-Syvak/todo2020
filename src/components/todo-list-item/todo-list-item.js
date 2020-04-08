@@ -8,7 +8,7 @@ export default class TodoListItem extends Component {
         important: false
     }
         
-    onLabelClick = () => {
+    /*onLabelClick = () => {
         this.setState(({done}) => {
             return {
                 done: !done
@@ -22,12 +22,11 @@ export default class TodoListItem extends Component {
                 important: !important
             }
         });
-    };
+    };*/
     
     render() {
 
-        const  { label, onDeleted, onToggleImportant, onToggleDone } = this.props;
-        const { done, important } = this.state;
+        const  { label, onDeleted, onToggleImportant, onToggleDone, important, done } = this.props;
 
         let classNames = 'todo-list-item';
         if (done) {
