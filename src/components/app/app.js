@@ -12,6 +12,8 @@ import './app.css';
 
 export default class App extends Component {
   
+  maxId = 100;
+
   state = {
     todoData: [
       { label: 'Drink Coffee', important: false, id: 1 },
@@ -36,6 +38,35 @@ export default class App extends Component {
     })
   };
 
+  addItem = (text) => {
+    // generate id
+    const newItem = {
+      label: text,
+      important: false,
+      id: this.maxId++
+    };
+    //add element to array
+    this.setState(({ todoData }) => {
+      const newArr = [
+        ...todoData,
+        newItem
+      ];
+
+      return {
+        todoData: newArr
+      }
+    });
+
+  };
+
+  onToggleImportant = (id) => {
+    console.log('Toggle Important', id);
+  };
+
+  onToggleDone = (id) => {
+    console.log('Toggle Done', id); 
+  };
+
   render () {
     return (
       <div className="indexClass">
@@ -46,8 +77,10 @@ export default class App extends Component {
         </span>
         <TodoList
           todos={this.state.todoData}
-          onDeleted={ this.deleteItem } />
-        <ItemAddForm />
+          onDeleted={ this.deleteItem }
+          onToggleDone={this.onToggleDone}
+          onToggleImportant={this.onToggleImportant} />
+        <ItemAddForm onItemAdded={this.addItem} />
       </div>
     );
   }
