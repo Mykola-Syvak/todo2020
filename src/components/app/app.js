@@ -92,16 +92,42 @@ export default class App extends Component {
     });
   };
 
-  activeBtn = (id) => {
+  allBtn = () => {
     this.setState(({ todoData }) => {
 
-      const newArray = todoData.filter((arr) => arr.done === false );
+      const newArrayActive = todoData.filter((arr) => (arr.done === false || arr.done === false));
+
+      return {
+        todoData: newArrayActive
+      };
+    })
+  };
+
+  activeBtn = () => {
+    this.setState(({ todoData }) => {
+
+      const newArrayActive = todoData.filter((arr) => arr.done === false );
+
+      
+      return {
+        todoData: newArrayActive
+      };
+    })
+  };
+
+  
+
+  doneBtn = () => {
+    this.setState(({ todoData }) => {
+
+      const newArray = todoData.filter((arr) => arr.done === true);
       
       return {
         todoData: newArray
       };
     })
   };
+
   
 
   render () {
