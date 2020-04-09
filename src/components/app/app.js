@@ -92,6 +92,18 @@ export default class App extends Component {
     });
   };
 
+  activeBtn = (id) => {
+    this.setState(({ todoData }) => {
+
+      const newArray = todoData.filter((arr) => arr.done === false );
+      
+      return {
+        todoData: newArray
+      };
+    })
+  };
+  
+
   render () {
     const { todoData } = this.state;
     const doneCount = todoData
@@ -103,7 +115,10 @@ export default class App extends Component {
         <AppHeader toDo={todoCount} done={doneCount}/>
         <span className="search-panel-group">
           <SearchPanel />
-          <ItemStatusFilter />
+          <ItemStatusFilter
+            allBtn={this.allBtn}
+            activeBtn={this.activeBtn}
+            doneBtn={this.doneBtn} />
         </span>
         <TodoList
           todos={todoData}
