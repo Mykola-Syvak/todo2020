@@ -79,7 +79,7 @@ export default class App extends Component {
   };
 
   onToggleDone = (id) => {
-    this.setState(({ todoData, activeTasks, doneTasks }) => {
+    this.setState(({ todoData }) => {
 
       const newArrayActive = todoData.filter((arr) => arr.done === false );
       const newArrayDone = todoData.filter((arr) => arr.done === true );
